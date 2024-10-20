@@ -15,6 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 // A Solar Database holds Solar Panel objects as a list
@@ -109,7 +110,7 @@ public class SolarDatabase {
         if (panelToUpdate != null) {
             System.out.println("Panel found. Enter the shortened name of the field to update:");
             System.out.println("Serial Number(S), Make(M), VOC(V), Cells X(X), Cells Y(Y)");
-            String fieldName = scanner.nextLine();
+            String fieldName = scanner.nextLine().toUpperCase();
 
 // Update the chosen field based on the user input using setters of Solar Panel
             switch (fieldName) {

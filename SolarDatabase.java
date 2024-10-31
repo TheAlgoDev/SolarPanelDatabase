@@ -64,7 +64,42 @@ public class SolarDatabase {
         }
         return importedPanels;
     }
+    public static List<SolarPanel> importPanelListFromJpanel(String filepath) throws IOException {
+        List<SolarPanel> importedPanels = new ArrayList<>();
+        filepath = filepath.replace("\\", "/");
+        filepath = filepath.replace("\"", "");
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length == 6) { // Ensure correct number of columns
+                    try {
+                        String moduleID = data[0];
+                        String serialNumber = data[1];
+                        String make = data[2];
+                        float voc = Float.parseFloat(data[3]);
+                        int numberCellsX = Integer.parseInt(data[4]);
+                        int numberCellsY = Integer.parseInt(data[5]);
+                        // Instantiate new SolarPanel and add to list of panels
+                        SolarPanel panel = new SolarPanel(moduleID, serialNumber, make, voc, numberCellsX, numberCellsY);
+                        System.out.println(panel);
+                        importedPanels.add(panel);
+                    } catch (NumberFormatException e) {
+                        System.err.println("Error with line: " + line);
+                    }
 
+                }
+            }
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("Error with file: " + filepath);
+        }
+
+        return importedPanels;
+    }
+
+    public int getSize() {
+        return size;
+    }
 // Return all items in the database
     public List<SolarPanel> getItems() {
         return items;
@@ -95,6 +130,17 @@ public class SolarDatabase {
             System.out.println("No module with ID " + moduleID + " is in the list.");
         }
 
+    }
+    public String removePanelWithJpanel(String moduleID, String serialNumber) {
+        boolean removed = items.removeIf(panel -> panel.getModuleID().equals(moduleID) &&
+                panel.getSerialNumber().equals(serialNumber));
+        if (removed) {
+            this.size -= 1;
+            return "Module with ID " + moduleID + " has been removed.";
+
+        } else {
+            return "No module with ID " + moduleID + " is in the list.";
+        }
     }
 // Use an abbreviated name to select attribute for updating, select module using moduleID
     public void mapPanelUpdate() {
@@ -161,6 +207,49 @@ public class SolarDatabase {
             System.out.println("Panel with Module ID " + moduleID + " not found.");
         }
     }
+    public String mapPanelUpdateFromJpanel(String moduleID, String updateKey, String updateValue) {
+// Find the panel with the matching Module ID
+        SolarPanel panelToUpdate = findPanelByModuleID(moduleID);
+
+        if (panelToUpdate != null) {
+// Update the chosen field based on the user input using setters of Solar Panel
+            switch (updateKey) {
+                case "Serial Number":
+                    var newSerialNumber = (String) updateValue;
+                    panelToUpdate.setSerialNumber((String) newSerialNumber);
+                    return "Serial Number Updated";
+                case "Make":
+                    var newMake = (String) updateValue;
+                    panelToUpdate.setMake((String) newMake);
+                    return "Make Updated";
+                case "Voltage Open Current":
+                    try {
+                        var newVOC = Float.parseFloat(updateValue);
+                        panelToUpdate.setVOC(newVOC);
+                        return "VOC Updated";
+                    } catch (NumberFormatException e) {
+                        return "Invalid input. Please enter a valid float value.";}
+                case "Number Cells X":
+                    try {
+                        int newCellsX = Integer.parseInt(updateValue);
+                        panelToUpdate.setNumberCellsX(newCellsX);
+                        return "Number Cells X Updated";
+                    } catch (NumberFormatException e) {
+                        return "Invalid input. Please enter a valid integer.";}
+                case "Number Cells Y":
+                    try {
+                        int newCellsY = Integer.parseInt(updateValue);
+                        panelToUpdate.setNumberCellsY(newCellsY);
+                        return "Number Cells Y Updated";
+                    } catch (NumberFormatException e) {
+                        return "Invalid input. Please enter a valid integer.";}
+                default:
+                    return "Invalid field name. Please enter a valid option.";}
+
+        } else {
+            return "Panel with Module ID " + moduleID + " not found.";
+        }
+    }
 
 // Method to find the panel by Module ID
     public SolarPanel findPanelByModuleID(String moduleID) {
@@ -191,5 +280,15 @@ public class SolarDatabase {
                 System.out.println("------------------------------------");
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return
+                "SolarDatabase{" +
+                "name='" + name + '\'' +
+                ", items=" + items +
+                ", size=" + size +
+                '}' ;
     }
 }

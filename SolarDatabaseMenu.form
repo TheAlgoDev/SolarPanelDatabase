@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SolarDatabaseMenu">
+  <grid id="27dc6" binding="Menu" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="1" left="1" bottom="1" right="1"/>
+    <constraints>
+      <xy x="20" y="28" width="801" height="812"/>
+    </constraints>
+    <properties>
+      <background color="-9649435"/>
+      <foreground color="-4995355"/>
+    </properties>
+    <border type="etched" title="Solar Database Menu" title-justification="2" title-position="1">
+      <font name="Arial Rounded MT Bold" size="20" style="1"/>
+      <title-color color="-16775818"/>
+    </border>
+    <children>
+      <tabbedpane id="b5e1" binding="tabbedPane1" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false">
+            <preferred-size width="400" height="200"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none" title-justification="2"/>
+        <children>
+          <grid id="57b0" layout-manager="GridLayoutManager" row-count="11" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Add Modules"/>
+            </constraints>
+            <properties/>
+            <border type="none" title="Add new Solar Panel Modules to the database." title-justification="2" title-position="3"/>
+            <children>
+              <component id="fba2a" class="javax.swing.JButton" binding="addIndividualModule">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Add Module"/>
+                </properties>
+              </component>
+              <component id="4bbc9" class="javax.swing.JButton" binding="importFromCSV">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Import From CSV"/>
+                </properties>
+              </component>
+              <component id="e39cb" class="javax.swing.JTextField" binding="addVOC">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="7aeae" class="javax.swing.JTextField" binding="addSerialNumber">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="2f297" class="javax.swing.JTextField" binding="addMake">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="7b876" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Serial Number"/>
+                </properties>
+              </component>
+              <component id="56355" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Make"/>
+                </properties>
+              </component>
+              <component id="88e67" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="VOC"/>
+                </properties>
+              </component>
+              <component id="ddb3" class="javax.swing.JTextField" binding="numberCellsX">
+                <constraints>
+                  <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="5fbef" class="javax.swing.JTextField" binding="numberCellsY">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="44e8c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Number Cells X"/>
+                </properties>
+              </component>
+              <component id="1ceca" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Number Cells Y"/>
+                </properties>
+              </component>
+              <component id="b87a7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Filepath"/>
+                </properties>
+              </component>
+              <component id="e16bd" class="javax.swing.JTextField" binding="filepath">
+                <constraints>
+                  <grid row="10" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="5ff65" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Module ID"/>
+                </properties>
+              </component>
+              <component id="7837a" class="javax.swing.JTextField" binding="addModID">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="69e3" class="javax.swing.JTextPane" binding="addModuleSuccess">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="300" height="300"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1118482"/>
+                  <font name="JetBrains Mono" size="18" style="1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="b11a0" class="javax.swing.JTextPane" binding="importModulesSuccess">
+                <constraints>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="300" height="300"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1118482"/>
+                  <font name="JetBrains Mono" size="12" style="1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="7b45" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Remove Module"/>
+            </constraints>
+            <properties/>
+            <border type="none" title="Remove a module from the database using the Module Id and Serial Number" title-justification="2" title-position="3"/>
+            <children>
+              <component id="b54b7" class="javax.swing.JButton" binding="removeModule">
+                <constraints>
+                  <grid row="0" column="0" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Remove Module"/>
+                </properties>
+              </component>
+              <hspacer id="8b395">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <component id="1bed2" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Module ID"/>
+                </properties>
+              </component>
+              <component id="d85cf" class="javax.swing.JTextField" binding="removeModID">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="50" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="ab902" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="-1" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="Serial Number"/>
+                </properties>
+              </component>
+              <component id="c7afc" class="javax.swing.JTextField" binding="removeSerialNumber">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="50" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="ff298" class="javax.swing.JTextPane" binding="removeModuleSuccess">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="300" height="100"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-2104859"/>
+                  <font name="JetBrains Mono" size="18" style="1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="30921" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Update Module"/>
+            </constraints>
+            <properties/>
+            <border type="none" title="Update a module in the database using Module ID" title-justification="2" title-position="3"/>
+            <children>
+              <component id="d60c4" class="javax.swing.JButton" binding="updateModule">
+                <constraints>
+                  <grid row="0" column="0" row-span="2" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Update Module"/>
+                </properties>
+              </component>
+              <component id="ed1ca" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Module ID"/>
+                </properties>
+              </component>
+              <component id="50fb0" class="javax.swing.JTextField" binding="updateModID">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="ad845" class="javax.swing.JComboBox" binding="updateKey">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="Serial Number"/>
+                    <item value="Make"/>
+                    <item value="Volatge Open Current"/>
+                    <item value="Number Cells X"/>
+                    <item value="Number Cells Y"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="d54a3" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Attribute to Update"/>
+                </properties>
+              </component>
+              <component id="42f5d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="New Value"/>
+                </properties>
+              </component>
+              <component id="95d21" class="javax.swing.JTextField" binding="updateValue">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="81734" class="javax.swing.JTextPane" binding="updateSuccessMessage">
+                <constraints>
+                  <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                    <maximum-size width="300" height="300"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1118482"/>
+                  <font name="JetBrains Mono" size="12" style="1"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="10af9" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Generate Report"/>
+            </constraints>
+            <properties/>
+            <border type="none" title="Generate a report that formats the data for researchers." title-justification="2" title-position="3"/>
+            <children>
+              <component id="a4e0e" class="javax.swing.JButton" binding="generateReport">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Generate Report"/>
+                </properties>
+              </component>
+              <component id="1b639" class="javax.swing.JTextPane" binding="generateReportMessage">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="300" height="300"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <font name="JetBrains Mono" size="16" style="1"/>
+                </properties>
+              </component>
+              <component id="cb38b" class="javax.swing.JTextField" binding="generateReportID">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="96fb6" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Module ID"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="57712" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Print Modules"/>
+            </constraints>
+            <properties/>
+            <border type="none" title="Print out all modules and their associated data." title-justification="2" title-position="3"/>
+            <children>
+              <component id="80747" class="javax.swing.JButton" binding="printModules">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Print Modules"/>
+                </properties>
+              </component>
+              <component id="aec34" class="javax.swing.JTextPane" binding="printModuleView">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+      <component id="ef9d2" class="javax.swing.JButton" binding="btnClear">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Clear"/>
+        </properties>
+      </component>
+      <component id="fb5e9" class="javax.swing.JButton" binding="exitProgramButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Exit Program"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

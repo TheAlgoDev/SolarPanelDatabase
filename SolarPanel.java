@@ -20,7 +20,7 @@ public class SolarPanel {
     public int NumberCellsY;
 
 // Constructor to create new Solar Panel object
-    public SolarPanel(String moduleID, String serialNumber, String make, Float VOC, int numberCellsX, int numberCellsY) {
+    public SolarPanel(String moduleID, String serialNumber, String make, float VOC, int numberCellsX, int numberCellsY) {
         this.ModuleID = moduleID;
         this.SerialNumber = serialNumber;
         this.Make = make;
@@ -129,11 +129,12 @@ public class SolarPanel {
 // Overridden toString method to highlight key details of a module
     @Override
     public String toString() {
-        return "Module_ID ='" + ModuleID + '\'' +
-                ", Serial Number ='" + SerialNumber + '\'' +
-                ", Make ='" + Make + '\'' +
-                ", VOC =" + VOC +
-                ", Total Number of Cells =" + calculateNumberCells() +
-                '}';
+        return "\n"+ "Module_ID = '" + ModuleID + '\'' +
+                ", Serial Number = '" + SerialNumber + '\'' +
+                ", Make = '" + Make + '\'' +
+                ", VOC = " + VOC +
+                ", Total Number of Cells = " + calculateNumberCells() +
+                ", Power Produced per Cell = " + calculatePowerPerCell()
+                ;
     }
 }

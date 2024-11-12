@@ -68,7 +68,7 @@ public class SolarDatabaseApp {
             else if (choice == 2) {
                 System.out.println("Removing a module from the database");
                 System.out.println("Please enter the information for the module: ");
-                FSEC.removePanel();
+                //FSEC.removePanel();
             }
 // Starts an update process that uses module ID to update a value associated to it.
             else if (choice == 3) {

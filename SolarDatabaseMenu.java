@@ -7,6 +7,7 @@ import java.util.List;
 public class SolarDatabaseMenu extends JFrame {
 
     private JPanel Menu;
+    private JPanel PathPrompt;
     private JTabbedPane tabbedPane1;
     private JButton addIndividualModule;
     private JButton importFromCSV;
@@ -35,14 +36,16 @@ public class SolarDatabaseMenu extends JFrame {
     private JTextPane generateReportMessage;
     private JTextField generateReportID;
     private JTextPane updateSuccessMessage;
+    private JTextField filePath;
+    private JButton addDatabase;
 
-    public SolarDatabaseMenu() {
+    public SolarDatabaseMenu(String filename) {
         setContentPane(Menu);
         setTitle("Solar Database Menu");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        SolarDatabase FSEC = new SolarDatabase("FSEC");
+        SolarDatabase FSEC = new SolarDatabase(filename);
 
 
         btnClear.addActionListener(new ActionListener() {
@@ -134,6 +137,7 @@ public class SolarDatabaseMenu extends JFrame {
 
             }
         });
+
         printModules.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -144,10 +148,15 @@ public class SolarDatabaseMenu extends JFrame {
         });
 
 
-
+        addDatabase.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FSEC.filepath = filePath.getText();
+            }
+        });
 
     }
     public static void main(String[] args) {
-        SolarDatabaseMenu frame = new SolarDatabaseMenu();
+        PathPrompt prompt = new PathPrompt();
     }
 }

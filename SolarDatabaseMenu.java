@@ -1,9 +1,27 @@
+/*
+
+Brent Thompson
+CEN 3024C 15339 Software Development 1
+Professor Ashley Evans
+November 12th, 2024
+
+Module 10 - Integrate Database
+
+The Menu is used to interface with a sqlite database using basic crud functions. There 5 tabs of options
+for the used to interact with.
+
+ */
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author Brent Thompson
+ * @version 1.0
+ */
 public class SolarDatabaseMenu extends JFrame {
 
     private JPanel Menu;
@@ -39,6 +57,9 @@ public class SolarDatabaseMenu extends JFrame {
     private JTextField filePath;
     private JButton addDatabase;
 
+    /**
+     * @param filename Location of the sqlite database
+     */
     public SolarDatabaseMenu(String filename) {
         setContentPane(Menu);
         setTitle("Solar Database Menu");
@@ -49,6 +70,9 @@ public class SolarDatabaseMenu extends JFrame {
 
 
         btnClear.addActionListener(new ActionListener() {
+            /**
+             * @param e Clear the form
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 addModID.setText("");
@@ -70,13 +94,21 @@ public class SolarDatabaseMenu extends JFrame {
                 updateSuccessMessage.setText("");
             }
         });
+        // Exit the program by using Exit button
         exitProgramButton.addActionListener(new ActionListener() {
+            /**
+             * @param e Exit the program
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+        // Adding an individual module using data entered in text fields
         addIndividualModule.addActionListener(new ActionListener() {
+            /**
+             * @param e Add a solar panel
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String modID = addModID.getText();
@@ -90,7 +122,11 @@ public class SolarDatabaseMenu extends JFrame {
                 addModuleSuccess.setText("Module with ID " + modID + " added successfully.");
             }
         });
+        // Importing modules to database using CSV
         importFromCSV.addActionListener(new ActionListener() {
+            /**
+             * @param e Import solar panel modules using a CSV
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -106,7 +142,11 @@ public class SolarDatabaseMenu extends JFrame {
                 }
             }
         });
+        // Remove module with the use of ModuleID and Serial Number
         removeModule.addActionListener(new ActionListener() {
+            /**
+             * @param e Remove a module from the database
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String modID = removeModID.getText();
@@ -115,7 +155,11 @@ public class SolarDatabaseMenu extends JFrame {
                 removeModuleSuccess.setText(returnMessage);
             }
         });
+        // Update a module in database using ModuleID
         updateModule.addActionListener(new ActionListener() {
+            /**
+             * @param e Update the records of a specific module
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String modID = updateModID.getText();
@@ -126,7 +170,11 @@ public class SolarDatabaseMenu extends JFrame {
 
             }
         });
+        // Generate report of specific module in the database
         generateReport.addActionListener(new ActionListener() {
+            /**
+             * @param e Generate a report of the solar panel
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 String modID = generateReportID.getText();
@@ -137,8 +185,11 @@ public class SolarDatabaseMenu extends JFrame {
 
             }
         });
-
+        // Print all modules with their details
         printModules.addActionListener(new ActionListener() {
+            /**
+             * @param e Print the contents of the solar panel database
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (SolarPanel panel : FSEC.getItems())
@@ -147,8 +198,11 @@ public class SolarDatabaseMenu extends JFrame {
             }
         });
 
-
+        // Add filepath to database object
         addDatabase.addActionListener(new ActionListener() {
+            /**
+             * @param e Add a database to the program and at the filepath specified
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 FSEC.filepath = filePath.getText();
@@ -156,6 +210,10 @@ public class SolarDatabaseMenu extends JFrame {
         });
 
     }
+
+    /**
+     * @param args Main Program
+     */
     public static void main(String[] args) {
         PathPrompt prompt = new PathPrompt();
     }

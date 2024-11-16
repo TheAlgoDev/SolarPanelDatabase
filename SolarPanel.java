@@ -1,15 +1,23 @@
 /*
 Brent Thompson
-Software Development 1 COP 3024C
+CEN 3024C 15339 Software Development 1
 Professor Ashley Evans
-October 12th, 2024
-Module 7 | DMS Project Phase 1: Logic and Input Validation
+November 12th, 2024
+
+Module 10 - Integrate Database
 
 The Solar Panel Class is an abstraction of a solar panel module, with functionality to update any field of the panels.
  */
+
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Solar Panel class to represent a solar panel
+ * @author Brent Thompson
+ * @version 1.0
+ */
 // A few key characteristics of a solar panel like ID, serial-number, and number of cells.
 public class SolarPanel {
     public String ModuleID;
@@ -19,6 +27,14 @@ public class SolarPanel {
     public int NumberCellsX;
     public int NumberCellsY;
 
+    /**
+     * @param moduleID is a unique identifier for solar panels
+     * @param serialNumber unique batch record to track makes
+     * @param make brand or producer of solar panel
+     * @param VOC Voltage open current is a common nameplate value
+     * @param numberCellsX the number of cells along the shortest side of the module
+     * @param numberCellsY the number of cells along the longest side of the module
+     */
 // Constructor to create new Solar Panel object
     public SolarPanel(String moduleID, String serialNumber, String make, float VOC, int numberCellsX, int numberCellsY) {
         this.ModuleID = moduleID;
@@ -76,16 +92,26 @@ public class SolarPanel {
         this.NumberCellsY = numberCellsY;
     }
 
+    /**
+     * @return Calculates the number of cells by multipyling x and y
+     */
 // Custom methods to get total cell counts and per cell performance
     public int calculateNumberCells() {
         int total = getNumberCellsX() * getNumberCellsY();
         return total;}
 
+    /**
+     * @return Divides the voltage open current by number of cells to get a per cell value
+     */
     public float calculatePowerPerCell() {
         float powerPerCell = (this.VOC / calculateNumberCells());
         return powerPerCell;
     }
 
+    /**
+     * @deprecated
+     * @return Consule prototype of the solar panel database
+     */
 // Method that allows user to input values of a panel manually
     public static SolarPanel createModuleFromInput() {
         Scanner scanner = new Scanner(System.in);
@@ -126,6 +152,10 @@ public class SolarPanel {
         SolarPanel newPanel = new SolarPanel(moduleID, serialNumber, make, voc, numberCellsX, numberCellsY);
         return newPanel;
     }
+
+    /**
+     * @return Overridden to string method to print out details of module
+     */
 // Overridden toString method to highlight key details of a module
     @Override
     public String toString() {

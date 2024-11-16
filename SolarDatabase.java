@@ -1,10 +1,10 @@
 /*
 Brent Thompson
-Software Development 1 COP 3024C
+CEN 3024C 15339 Software Development 1
 Professor Ashley Evans
-October 12th, 2024
-Module 7 | DMS Project Phase 1: Logic and Input Validation
+November 12th, 2024
 
+Module 10 - Integrate Database
 This Solar Database class is an abstraction of a database that interfaces with a sqlite database. Key functionality
 includes adding new modules by batch or individually, removing modules, and generating reports on data.
  */
@@ -18,12 +18,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Brent Thompson
+ * @version 1.0
+ */
 // A Solar Database holds Solar Panel objects as a list
 public class SolarDatabase {
     public String filepath;
     private Connection conn;
     //public int size;
 
+    /**
+     * @param filepath is the location of the sqlite database on disk
+     */
 // New SolarDatabase creates database if one does not exist already
     public SolarDatabase(String filepath) {
         //int size = getSize();
@@ -49,6 +56,11 @@ public class SolarDatabase {
         }
     }
 
+    /**
+     * @deprecated
+     * @return Imports solar panel objects from the console
+     * @throws IOException when a non-valid entry is entered
+     */
 // Allows user to import a text file, reads file line by line and imports panel to database
     public static List<SolarPanel> importPanelList() throws IOException {
         Scanner scanner = new Scanner(System.in);
@@ -83,6 +95,11 @@ public class SolarDatabase {
         return importedPanels;
     }
 
+    /**
+     * @param filepath location of the sqlite database
+     * @return list of solar panel objects that will be added to the database
+     * @throws IOException
+     */
 // Import a csv using the main menu, woks the same as import panel list
     public static List<SolarPanel> importPanelListFromJpanel(String filepath) throws IOException {
         List<SolarPanel> importedPanels = new ArrayList<>();
@@ -117,6 +134,9 @@ public class SolarDatabase {
         return importedPanels;
     }
 
+    /**
+     * @return Counts the number of rows in the solar panel database
+     */
     // Uses count to get the size of the database
     public int getSize() {
         String countSQL = "SELECT COUNT(*) AS total FROM Solar_Database;";
@@ -130,6 +150,10 @@ public class SolarDatabase {
         }
         return 0;
     }
+
+    /**
+     * @param panel Solar panel object
+     */
 // Add a panel to the database
     public void addPanel(SolarPanel panel) {
         String insertSQL = "INSERT INTO Solar_Database (moduleID, serialNumber, make, voc, numberCellsX, numberCellsY) "
@@ -148,7 +172,10 @@ public class SolarDatabase {
     }
 
 // Remove a panel from the database based on two attributes, module_ID and serial number
-    /*
+
+    /**
+     * @deprecated
+     */
     public void removePanel() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the Module ID of the panel: ");
@@ -156,18 +183,13 @@ public class SolarDatabase {
         System.out.println("Enter the Serial Number of the panel: ");
         String serialNumber = scanner.nextLine();
 
-// Check if ModuleID and Serial Number match, and determine print message from result
-        boolean removed = items.removeIf(panel -> panel.getModuleID().equals(moduleID) &&
-                panel.getSerialNumber().equals(serialNumber));
+    }
 
-        if (removed) {
-            System.out.println("Module with ID " + moduleID + " has been removed.");
-            this.size -= 1;
-        } else {
-            System.out.println("No module with ID " + moduleID + " is in the list.");
-        }
-
-    }*/
+    /**
+     * @param moduleID Unique ID of a solar panel
+     * @param serialNumber Serial number of the module, used to track batches
+     * @return
+     */
     public String removePanelWithJpanel(String moduleID, String serialNumber) {
         String deleteSQL = "DELETE FROM Solar_Database WHERE moduleID = ? AND serialNumber = ?;";
         try (PreparedStatement pstmt = conn.prepareStatement(deleteSQL)) {
@@ -184,6 +206,10 @@ public class SolarDatabase {
             return "Error occurred while removing the module.";
         }
     }
+
+    /**
+     * @deprecated
+     */
 // Use an abbreviated name to select attribute for updating, select module using moduleID
     public void mapPanelUpdate() {
         Scanner scanner = new Scanner(System.in);
@@ -250,6 +276,12 @@ public class SolarDatabase {
         }
     }
 
+    /**
+     * @param moduleID Unique ID of a solar panel
+     * @param updateKey Which column in the database to update
+     * @param updateValue What update value to add to the column
+     * @return New entry in the database
+     */
 // Map update using values sent in from Jpanel
     public String mapPanelUpdateFromJpanel(String moduleID, String updateKey, String updateValue) {
         String column = "";
@@ -305,6 +337,10 @@ public class SolarDatabase {
         }
     }
 
+    /**
+     * @param moduleID Unique ID of a solar panel
+     * @return Solar panel object with the corresponding module ID
+     */
 // Use moduleID to find panel in database
     public SolarPanel findPanelByModuleID(String moduleID) {
         String selectSQL = "SELECT * FROM Solar_Database WHERE moduleID = ?;";
@@ -330,6 +366,9 @@ public class SolarDatabase {
 
     // Return all items in the database
 
+    /**
+     * @return all solar panels from the database
+     */
     public List<SolarPanel> getItems() {
         List<SolarPanel> panels = new ArrayList<>();
         String selectSQL = "SELECT * FROM Solar_Database;";
@@ -351,6 +390,9 @@ public class SolarDatabase {
         return panels;
     }
 
+    /**
+     * @deprecated
+     */
 // Generate a custom report that calculates values and displays module information
 public void generateReport() {
     System.out.println("Solar Panel Report for Database: " + filepath);
@@ -374,6 +416,9 @@ public void generateReport() {
     }
 }
 
+    /**
+     * @return Overridden toString method
+     */
     @Override
     public String toString() {
         return "SolarDatabase{" +
